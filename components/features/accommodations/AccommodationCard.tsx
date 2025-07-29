@@ -8,9 +8,9 @@ interface AccommodationCardProps {
 
 export function AccommodationCard({ accommodation }: AccommodationCardProps) {
   return (
-    <div className="flex w-[361px] flex-col gap-[26px] overflow-hidden md:w-[387px]">
+    <div className="flex w-[361px] flex-col gap-[26px] md:w-[387px]">
       {/* Image */}
-      <div className="relative w-full overflow-hidden rounded-2xl">
+      <div className="relative w-full overflow-hidden rounded-xl">
         <Image
           src={accommodation.image}
           alt={accommodation.title}
@@ -19,18 +19,21 @@ export function AccommodationCard({ accommodation }: AccommodationCardProps) {
           height={409}
           sizes="(max-width: 768px) 361px, 409px"
         />
+        <div className="tracking-tightest absolute bottom-3 left-3 rounded-xl bg-white/80 px-2 py-4 font-medium">
+          Start from {accommodation.price} / night
+        </div>
       </div>
 
       {/* Content */}
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">
           {/* Title */}
-          <h3 className="text-xl font-semibold tracking-tight text-blue-900">
+          <h3 className="tracking-tightest text-xl font-semibold text-blue-900">
             {accommodation.title}
           </h3>
 
           {/* Description */}
-          <p className="text-sm leading-relaxed text-blue-800">
+          <p className="tracking-tightest leading-relaxed font-light text-blue-800">
             {accommodation.description}
           </p>
         </div>
@@ -38,11 +41,16 @@ export function AccommodationCard({ accommodation }: AccommodationCardProps) {
         {/* CTA Button */}
         <div className="pt-2">
           <Button
-            variant="outline"
-            size="sm"
-            className="w-full"
+            variant="rounded"
+            size="lg"
           >
-            Discover More
+            <span className="font-medium">Discover More</span>
+            <Image
+              src="/icons/icon-arrow-right.svg"
+              alt="arrow-right"
+              width={24}
+              height={24}
+            />
           </Button>
         </div>
       </div>

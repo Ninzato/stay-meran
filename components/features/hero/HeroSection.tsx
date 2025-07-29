@@ -29,7 +29,7 @@ export function HeroSection() {
             </p>
 
             {/* Main Title */}
-            <h1 className="flex flex-col text-[50px] leading-tight font-medium tracking-tight md:text-7xl">
+            <h1 className="tracking-tightest flex flex-col text-[50px] leading-tight font-medium md:text-7xl">
               <span>{mockHeroContent.title1}</span>
               <span>{mockHeroContent.title2}</span>
             </h1>

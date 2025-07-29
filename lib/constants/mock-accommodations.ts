@@ -4,6 +4,7 @@ export interface Accommodation {
   subtitle: string;
   description: string;
   image: string;
+  price: string;
   discoverMoreLink: string;
 }
 
@@ -15,6 +16,7 @@ export const mockAccommodations: Accommodation[] = [
     description:
       'A bright, stylish retreat in a historic villa, blending classic charm with modern comfort.',
     image: '/images/apartment-helles.png',
+    price: '€100',
     discoverMoreLink: '/accommodations/helles-apartment'
   },
   {
@@ -24,6 +26,7 @@ export const mockAccommodations: Accommodation[] = [
     description:
       'A modern, minimalist retreat offering a peaceful and stylish stay in the heart of Merano.',
     image: '/images/apartment-franz.png',
+    price: '€80',
     discoverMoreLink: '/accommodations/apartment-franz'
   },
   {
@@ -33,6 +36,7 @@ export const mockAccommodations: Accommodation[] = [
     description:
       'An elegant escape featuring a private balcony with picturesque views of the city and surrounding nature.',
     image: '/images/apartment-sissi.png',
+    price: '€120',
     discoverMoreLink: '/accommodations/apartment-sissi'
   }
 ];

@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui';
+import { Section } from '@/components/ui';
 import { mockSections } from '@/lib/constants';
 
 export function WhyMeranoSection() {
@@ -9,22 +9,18 @@ export function WhyMeranoSection() {
   if (!whyMeranoContent) return null;
 
   return (
-    <section className="bg-background py-16">
-      <Container>
-        <div className="mx-auto max-w-4xl">
-          {/* Title */}
-          <h2 className="text-foreground mb-8 text-3xl font-bold md:text-4xl">
-            {whyMeranoContent.title}
-          </h2>
+    <Section>
+      <div>
+        {/* Title */}
+        <h2 className="tracking-tightest text-[32px] leading-[1.5em] font-medium text-blue-900 md:text-[44px]">
+          {whyMeranoContent.title}
+        </h2>
 
-          {/* Content */}
-          <div className="prose prose-lg max-w-none">
-            <p className="text-foreground/80 text-lg leading-relaxed">
-              {whyMeranoContent.content}
-            </p>
-          </div>
-        </div>
-      </Container>
-    </section>
+        {/* Content */}
+        <p className="tracking-tightest text-base leading-[2em] font-light text-blue-800 2xl:text-xl">
+          {whyMeranoContent.content}
+        </p>
+      </div>
+    </Section>
   );
 }

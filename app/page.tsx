@@ -26,11 +26,13 @@ export default function Home() {
         {/* Accommodations Grid */}
         <AccommodationsGrid />
 
-        {/* Why Merano Section */}
-        <WhyMeranoSection />
+        <div className="bg-blue-100 py-10">
+          {/* Why Merano Section */}
+          <WhyMeranoSection />
 
-        {/* Breathtaking Nature Section */}
-        <NatureSection />
+          {/* Breathtaking Nature Section */}
+          <NatureSection />
+        </div>
 
         {/* Testimonials Grid */}
         <TestimonialsGrid />
