@@ -1,11 +1,17 @@
 import { cn } from '@/lib/utils/cn';
 
-interface SearchInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+interface SearchInputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   size?: 'sm' | 'md' | 'lg';
   showSearchButton?: boolean;
 }
 
-export function SearchInput({ size = 'md', showSearchButton = false, className, ...props }: SearchInputProps) {
+export function SearchInput({
+  size = 'md',
+  showSearchButton = false,
+  className,
+  ...props
+}: SearchInputProps) {
   return (
     <div className="relative flex items-center">
       <input

@@ -6,18 +6,26 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-export function Button({ variant = 'primary', size = 'md', className, children, ...props }: ButtonProps) {
+export function Button({
+  variant = 'primary',
+  size = 'md',
+  className,
+  children,
+  ...props
+}: ButtonProps) {
   return (
     <button
       className={cn(
         'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
         {
           // Variants
-          'bg-foreground text-background hover:bg-foreground/90': variant === 'primary',
+          'bg-foreground text-background hover:bg-foreground/90':
+            variant === 'primary',
           'bg-background text-foreground border-foreground hover:bg-foreground hover:text-background border':
             variant === 'secondary',
           'text-foreground hover:bg-foreground/10': variant === 'ghost',
-          'border-foreground text-foreground hover:bg-foreground hover:text-background border': variant === 'outline',
+          'border-foreground text-foreground hover:bg-foreground hover:text-background border':
+            variant === 'outline',
           // Sizes
           'h-9 px-3 text-sm': size === 'sm',
           'h-10 px-4 py-2': size === 'md',

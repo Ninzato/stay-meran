@@ -25,10 +25,14 @@ export function AccommodationCard({ accommodation }: AccommodationCardProps) {
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">
           {/* Title */}
-          <h3 className="text-xl font-semibold tracking-tight text-blue-900">{accommodation.title}</h3>
+          <h3 className="text-xl font-semibold tracking-tight text-blue-900">
+            {accommodation.title}
+          </h3>
 
           {/* Description */}
-          <p className="text-sm leading-relaxed text-blue-800">{accommodation.description}</p>
+          <p className="text-sm leading-relaxed text-blue-800">
+            {accommodation.description}
+          </p>
         </div>
 
         {/* CTA Button */}

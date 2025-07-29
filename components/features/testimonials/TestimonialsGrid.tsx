@@ -8,7 +8,18 @@ export function TestimonialsGrid() {
       <Container>
         {/* Section Title */}
         <div className="mb-12 text-center">
-          <h2 className="text-foreground mb-4 text-3xl font-bold md:text-4xl">What Our Guests Say At StayMeran</h2>
+          <h2 className="text-foreground mb-4 text-3xl font-bold md:text-4xl">
+            What Our Guests Say At StayMeran
+          </h2>
+        </div>
+
+        {/* Section Subtitle */}
+        <div className="mb-12 text-center">
+          <p className="text-foreground mb-4 text-lg font-medium md:text-xl">
+            We take pride in providing an exceptional stay for our guests. See
+            what they have to say about their experiences and why they choose to
+            return.
+          </p>
         </div>
 
         {/* Masonry Grid Layout */}

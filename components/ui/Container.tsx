@@ -6,7 +6,11 @@ interface ContainerProps {
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
 }
 
-export function Container({ children, className, size = 'lg' }: ContainerProps) {
+export function Container({
+  children,
+  className,
+  size = 'lg'
+}: ContainerProps) {
   return (
     <div
       className={cn(

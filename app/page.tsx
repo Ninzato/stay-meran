@@ -1,6 +1,10 @@
 import { Header, Footer } from '@/components/layout';
 import { HeroSection } from '@/components/features/hero';
-import { IntroSection, WhyMeranoSection, NatureSection } from '@/components/features/sections';
+import {
+  IntroSection,
+  WhyMeranoSection,
+  NatureSection
+} from '@/components/features/sections';
 import { AccommodationsGrid } from '@/components/features/accommodations';
 import { TestimonialsGrid } from '@/components/features/testimonials';
 import { FinalCtaSection } from '@/components/features/cta';

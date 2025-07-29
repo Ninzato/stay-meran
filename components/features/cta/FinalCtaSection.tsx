@@ -21,10 +21,14 @@ export function FinalCtaSection() {
       <Container className="relative z-10 text-center text-white">
         <div className="mx-auto max-w-4xl space-y-8">
           {/* Title */}
-          <h2 className="text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">{mockFinalCTA.title}</h2>
+          <h2 className="text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+            {mockFinalCTA.title}
+          </h2>
 
           {/* Subtitle/Description */}
-          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">{mockFinalCTA.subtitle}</p>
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
+            {mockFinalCTA.subtitle}
+          </p>
 
           {/* CTA Button */}
           <div className="pt-4">

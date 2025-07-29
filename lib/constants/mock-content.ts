@@ -11,7 +11,6 @@ export interface SectionContent {
   title: string;
   content: string;
   image?: string;
-  bulletPoints?: string[];
 }
 
 export interface CTAContent {
@@ -41,14 +40,14 @@ export const mockSections: SectionContent[] = [
     id: 'why-merano',
     title: 'Why stay in Merano?',
     content:
-      "Where Italian Culture and Bavarian Alpine Freedom in the heart of the Alps, Merano is a delightful town known for its incredible landscapes, thermal baths and relaxing atmosphere to the soul relaxation, wellness, and ultimate taste. Whether you're seeking outdoor adventure or simply want to indulge in the local culture and cuisine, Merano offers the perfect backdrop for your next getaway.",
+      "Where Nature, Culture, and Relaxation Meet Nestled in the heart of the Alps, Merano is a captivating town known for its picturesque landscapes, vibrant cultural scene, and renowned wellness experiences. Whether you're exploring historic streets, indulging in world-class cuisine, or unwinding in thermal spas, Merano has something for every traveler.",
     image: '/images/merano-1.png'
   },
   {
     id: 'breathtaking-nature',
     title: 'Breathtaking Nature',
-    content: 'Surrounded by alpine meadows, hiking/biking trails and stunning mountain ranges.',
-    bulletPoints: ['Hiking Trails', 'Culinary Delights', 'Thermal Springs', 'Alpine Adventure'],
+    content:
+      'Surrounded by majestic mountains, rolling vineyards, and scenic walking trails.',
     image: '/images/merano-1.png'
   }
 ];
@@ -56,7 +55,7 @@ export const mockSections: SectionContent[] = [
 export const mockFinalCTA: CTAContent = {
   title: 'Find Your Stay Plan Your Perfect Getaway',
   subtitle:
-    "Ready to experience unforgettable moments? Choose between our unique accommodations and book your perfect getaway with us. Whether you're coming from adventure, culture and luxury. Our bed is warm awaiting your arrival, whether your mountain views or historic charm.",
+    'Ready to experience Merano’s charm? Discover availability and book your ideal accommodation today. Whether you’re looking for a romantic escape, a cultural adventure, or a relaxing retreat, StayMeran has the perfect place for you.',
   buttonText: 'Book Your Stay',
   buttonHref: '/book',
   backgroundImage: '/images/hero.png'

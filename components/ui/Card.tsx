@@ -7,7 +7,12 @@ interface CardProps {
   variant?: 'default' | 'bordered' | 'elevated';
 }
 
-export function Card({ children, className, size = 'md', variant = 'default' }: CardProps) {
+export function Card({
+  children,
+  className,
+  size = 'md',
+  variant = 'default'
+}: CardProps) {
   return (
     <div
       className={cn(
@@ -30,14 +35,32 @@ export function Card({ children, className, size = 'md', variant = 'default' }: 
   );
 }
 
-export function CardHeader({ children, className }: { children: React.ReactNode; className?: string }) {
+export function CardHeader({
+  children,
+  className
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <div className={cn('pb-3', className)}>{children}</div>;
 }
 
-export function CardContent({ children, className }: { children: React.ReactNode; className?: string }) {
+export function CardContent({
+  children,
+  className
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <div className={cn('', className)}>{children}</div>;
 }
 
-export function CardFooter({ children, className }: { children: React.ReactNode; className?: string }) {
+export function CardFooter({
+  children,
+  className
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <div className={cn('pt-3', className)}>{children}</div>;
 }

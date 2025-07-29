@@ -100,8 +100,12 @@ export function Footer() {
               <div className="flex items-center space-x-4">
                 <span className="text-background/70">Language:</span>
                 <div className="flex space-x-2">
-                  <button className="text-background hover:text-background/70">🇺🇸 ENG</button>
-                  <button className="text-background hover:text-background/70">🇩🇪 DE</button>
+                  <button className="text-background hover:text-background/70">
+                    🇺🇸 ENG
+                  </button>
+                  <button className="text-background hover:text-background/70">
+                    🇩🇪 DE
+                  </button>
                 </div>
 
                 {/* Social Icons Placeholder */}

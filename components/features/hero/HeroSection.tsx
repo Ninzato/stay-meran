@@ -24,7 +24,9 @@ export function HeroSection() {
         <Container className="relative z-10 text-center text-white">
           <div className="mx-auto max-w-4xl space-y-8">
             {/* Subtitle */}
-            <p className="text-base tracking-widest uppercase md:text-2xl">{mockHeroContent.subtitle}</p>
+            <p className="text-base tracking-widest uppercase md:text-2xl">
+              {mockHeroContent.subtitle}
+            </p>
 
             {/* Main Title */}
             <h1 className="flex flex-col text-[50px] leading-tight font-medium tracking-tight md:text-7xl">

@@ -10,10 +10,10 @@ export interface Accommodation {
 export const mockAccommodations: Accommodation[] = [
   {
     id: 'helles-apartment',
-    title: 'Helles Apartment in Historisches Villa',
+    title: 'Helles Apartment in historischer Villa',
     subtitle: 'Historic Villa Apartment',
     description:
-      'A bright and spacious apartment located in a beautiful historic villa in the heart of Merano. Features traditional Alpine architecture with modern amenities.',
+      'A bright, stylish retreat in a historic villa, blending classic charm with modern comfort.',
     image: '/images/apartment-helles.png',
     discoverMoreLink: '/accommodations/helles-apartment'
   },
@@ -22,7 +22,7 @@ export const mockAccommodations: Accommodation[] = [
     title: 'Apartment Franz',
     subtitle: 'Modern Comfort',
     description:
-      'Contemporary apartment with elegant furnishings and all modern conveniences. Perfect for couples or business travelers seeking comfort and style.',
+      'A modern, minimalist retreat offering a peaceful and stylish stay in the heart of Merano.',
     image: '/images/apartment-franz.png',
     discoverMoreLink: '/accommodations/apartment-franz'
   },
@@ -31,7 +31,7 @@ export const mockAccommodations: Accommodation[] = [
     title: 'Apartment Sissi mit Balkon',
     subtitle: 'Balcony with Mountain Views',
     description:
-      'Charming apartment featuring a private balcony with stunning mountain views. Ideal for those who want to wake up to the beauty of the Alps.',
+      'An elegant escape featuring a private balcony with picturesque views of the city and surrounding nature.',
     image: '/images/apartment-sissi.png',
     discoverMoreLink: '/accommodations/apartment-sissi'
   }
