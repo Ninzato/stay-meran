@@ -24,23 +24,6 @@ export function NatureSection() {
             <p className="text-foreground/80 text-lg leading-relaxed">
               {natureContent.content}
             </p>
-
-            {/* Bullet Points */}
-            {natureContent.bulletPoints && (
-              <div className="grid grid-cols-2 gap-4">
-                {natureContent.bulletPoints.map((point, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-3"
-                  >
-                    <div className="bg-foreground h-2 w-2 flex-shrink-0 rounded-full" />
-                    <span className="text-foreground/80 font-medium">
-                      {point}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
 
           {/* Right: Image */}
