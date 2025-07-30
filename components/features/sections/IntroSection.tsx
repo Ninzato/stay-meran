@@ -8,7 +8,10 @@ export function IntroSection() {
   if (!introContent) return null;
 
   return (
-    <Section className="mt-16">
+    <Section
+      id="our-stays"
+      className="mt-16"
+    >
       {/* <Container> */}
       <div className="w-[361px] md:w-[1065px]">
         <p className="tracking-tightest text-[32px] leading-[1.5em] font-medium text-blue-900 md:text-[44px]">

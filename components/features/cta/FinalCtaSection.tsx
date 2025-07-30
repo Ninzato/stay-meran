@@ -1,46 +1,51 @@
 import Image from 'next/image';
-import { Button, Container } from '@/components/ui';
+import { Button, Section } from '@/components/ui';
 import { mockFinalCTA } from '@/lib/constants';
 
 export function FinalCtaSection() {
   return (
-    <section className="relative overflow-hidden py-24">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+    <Section className="my-[106px] overflow-hidden">
+      <div className="relative flex min-h-[504px] items-center justify-center rounded-xl">
+        {/* Background Image */}
         <Image
           src={mockFinalCTA.backgroundImage}
           alt="Find your perfect getaway"
           fill
-          className="object-cover"
+          className="rounded-xl object-cover"
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+        <div className="absolute inset-0 rounded-xl bg-black/30" />
 
-      {/* Content */}
-      <Container className="relative z-10 text-center text-white">
-        <div className="mx-auto max-w-4xl space-y-8">
+        {/* Content */}
+        <div className="mx z-10 flex flex-col gap-6 text-center">
           {/* Title */}
-          <h2 className="text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+          <h2 className="tracking-tightest mx-auto w-[337px] text-[32px] leading-[1.2em] text-white 2xl:w-[420px] 2xl:text-[44px] 2xl:font-medium">
             {mockFinalCTA.title}
           </h2>
 
           {/* Subtitle/Description */}
-          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl">
+          <p className="2xl:text-normal 2xl:font-base tracking-tightest mx-auto w-[337px] leading-[2em] text-blue-100 2xl:w-[808px]">
             {mockFinalCTA.subtitle}
           </p>
 
           {/* CTA Button */}
-          <div className="pt-4">
+          <div className="flex w-full justify-center">
             <Button
+              variant="rounded"
               size="lg"
-              className="bg-white px-8 py-4 text-lg font-semibold text-black hover:bg-white/90"
+              className="w-full bg-white font-medium text-[#1E1E1E] hover:bg-white/90 2xl:w-fit"
             >
-              {mockFinalCTA.buttonText}
+              <span>{mockFinalCTA.buttonText}</span>
+              <Image
+                src="/icons/icon-arrow-right.svg"
+                alt="arrow-right"
+                width={24}
+                height={24}
+              />
             </Button>
           </div>
         </div>
-      </Container>
-    </section>
+      </div>
+    </Section>
   );
 }

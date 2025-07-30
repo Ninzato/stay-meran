@@ -16,7 +16,7 @@ export function Button({
   return (
     <button
       className={cn(
-        'flex items-center justify-center gap-2.5 rounded-md font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
+        'flex items-center justify-center gap-2.5 rounded-md font-medium transition-colors hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
         {
           // Variants
           'bg-foreground text-background hover:bg-foreground/90':

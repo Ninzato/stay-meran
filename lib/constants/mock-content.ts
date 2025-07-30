@@ -56,7 +56,7 @@ export const mockFinalCTA: CTAContent = {
   title: 'Find Your Stay Plan Your Perfect Getaway',
   subtitle:
     'Ready to experience Merano’s charm? Discover availability and book your ideal accommodation today. Whether you’re looking for a romantic escape, a cultural adventure, or a relaxing retreat, StayMeran has the perfect place for you.',
-  buttonText: 'Book Your Stay',
+  buttonText: 'Find Your Stay',
   buttonHref: '/book',
-  backgroundImage: '/images/hero.png'
+  backgroundImage: '/images/cta.png'
 };

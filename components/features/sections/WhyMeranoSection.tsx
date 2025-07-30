@@ -9,7 +9,7 @@ export function WhyMeranoSection() {
   if (!whyMeranoContent) return null;
 
   return (
-    <Section>
+    <Section id="why-merano">
       <div>
         {/* Title */}
         <h2 className="tracking-tightest text-[32px] leading-[1.5em] font-medium text-blue-900 md:text-[44px]">

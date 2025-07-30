@@ -9,12 +9,17 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+  --font-dm-sans: var(--font-dm-sans);
 }
 
 @theme {
   --tracking-tightest: -0.06em;
-  --color-blue-100: #F8FAFB;
-  --color-blue-500: #B4BCBE;
+  --color-blue-100: #f8fafb;
+  --color-blue-200: #edf2f3;
+  --color-blue-300: #DFE5E7;
+  --color-blue-400: #CCD3D6;
+  --color-blue-500: #b4bcbe;
+  --color-blue-700: #707577;
   --color-blue-800: #454849;
   --color-blue-900: #18191a;
 }
