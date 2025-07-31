@@ -13,8 +13,8 @@ export function IntroSection() {
       className="mt-16"
     >
       {/* <Container> */}
-      <div className="w-[361px] md:w-[1065px]">
-        <p className="tracking-tightest text-[32px] leading-[1.5em] font-medium text-blue-900 md:text-[44px]">
+      <div className="w-[361px] 2xl:w-[1065px]">
+        <p className="tracking-tightest text-[32px] leading-[1.5em] font-medium text-blue-900 2xl:text-[44px]">
           {introContent.content}
         </p>
       </div>

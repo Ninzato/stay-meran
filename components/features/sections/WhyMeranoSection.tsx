@@ -12,7 +12,7 @@ export function WhyMeranoSection() {
     <Section id="why-merano">
       <div>
         {/* Title */}
-        <h2 className="tracking-tightest text-[32px] leading-[1.5em] font-medium text-blue-900 md:text-[44px]">
+        <h2 className="tracking-tightest text-[32px] leading-[1.5em] font-medium text-blue-900 2xl:text-[44px]">
           {whyMeranoContent.title}
         </h2>
 

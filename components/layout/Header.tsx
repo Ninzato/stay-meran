@@ -22,8 +22,8 @@ export function Header() {
   const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
 
   return (
-    <header className="absolute top-0 right-0 left-0 z-50 pt-5 2xl:pt-[52px]">
-      <div className="flex w-full max-w-screen-2xl items-center justify-center px-5 2xl:justify-between 2xl:px-16">
+    <header className="absolute top-0 right-0 left-0 z-50 mx-auto w-[387px] pt-5 2xl:w-full 2xl:pt-[52px]">
+      <div className="flex w-full max-w-screen items-center justify-center px-5 2xl:justify-between 2xl:px-16">
         {/* Invisible spacer to center main header */}
         <div className="hidden items-center gap-3 2xl:invisible 2xl:flex">
           <Image

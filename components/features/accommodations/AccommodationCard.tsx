@@ -8,7 +8,7 @@ interface AccommodationCardProps {
 
 export function AccommodationCard({ accommodation }: AccommodationCardProps) {
   return (
-    <div className="flex w-[361px] flex-col gap-[26px] md:w-[387px]">
+    <div className="flex w-[361px] flex-col gap-[26px] 2xl:w-[387px]">
       {/* Image */}
       <div className="relative w-full overflow-hidden rounded-xl">
         <Image
