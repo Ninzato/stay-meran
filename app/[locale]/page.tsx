@@ -47,13 +47,16 @@ export default async function Home({ params }: HomeProps) {
         {/* Hero Section */}
         {heroContent && <HeroSection heroContent={heroContent} />}
 
-        {/* Intro Section */}
-        {introContent && <IntroSection sectionContent={introContent} />}
+        {/* Intro Section + Accommodations Grid */}
+        <div className="min-h-screen">
+          {/* Intro Section */}
+          {introContent && <IntroSection sectionContent={introContent} />}
 
-        {/* Accommodations Grid */}
-        <AccommodationsGrid accommodations={accommodations} />
+          {/* Accommodations Grid */}
+          <AccommodationsGrid accommodations={accommodations} />
+        </div>
 
-        <div className="bg-blue-100 py-10">
+        <div className="bg-blue-100 py-10 min-h-screen">
           {/* Why Merano Section */}
           {whyMeranoContent && <WhyMeranoSection sectionContent={whyMeranoContent} />}
 

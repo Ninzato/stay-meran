@@ -9,20 +9,18 @@ interface HeroSectionProps {
 export function HeroSection({ heroContent }: HeroSectionProps) {
 
   return (
-    <div className="mx-auto w-[387px] px-2 pt-2 2xl:w-full 2xl:px-7 2xl:pt-7">
-      <div className="relative flex h-[788px] w-full items-end justify-center overflow-hidden rounded-xl p-3 2xl:items-center">
+    <div className="mx-auto w-[387px] px-2 py-2 2xl:w-full 2xl:px-7 2xl:py-7">
+      <div className="relative flex h-[calc(100vh-1rem)] w-full items-end justify-center overflow-hidden rounded-xl p-3 2xl:h-[calc(100vh-3.5rem)] 2xl:items-center">
         {/* Background Image */}
-        <div>
-          <Image
-            src={heroContent.backgroundImage}
-            alt="Merano landscape"
-            fill
-            className="object-cover 2xl:object-fill"
-            priority
-          />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
+        <Image
+          src={heroContent.backgroundImage}
+          alt="Merano landscape"
+          fill
+          className="object-cover 2xl:object-fill"
+          priority
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40" />
 
         {/* Hero Content */}
         <div className="relative z-10 w-full text-center text-white">
