@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 import { Button } from '@/components/ui';
 import type { Accommodation } from '@/lib/constants';
 
@@ -6,7 +7,10 @@ interface AccommodationCardProps {
   accommodation: Accommodation;
 }
 
-export function AccommodationCard({ accommodation }: AccommodationCardProps) {
+export async function AccommodationCard({ accommodation }: AccommodationCardProps) {
+  const t = await getTranslations('buttons');
+  const tAccommodations = await getTranslations('accommodations');
+
   return (
     <div className="flex w-[361px] flex-col gap-[26px] 2xl:w-[387px]">
       {/* Image */}
@@ -20,7 +24,7 @@ export function AccommodationCard({ accommodation }: AccommodationCardProps) {
           sizes="(max-width: 768px) 361px, 409px"
         />
         <div className="tracking-tightest absolute bottom-3 left-3 rounded-xl bg-white/80 px-2 py-4 font-medium">
-          Start from {accommodation.price} / night
+          {tAccommodations('priceInfo', { price: accommodation.price })}
         </div>
       </div>
 
@@ -44,7 +48,7 @@ export function AccommodationCard({ accommodation }: AccommodationCardProps) {
             variant="rounded"
             size="lg"
           >
-            <span className="font-medium">Discover More</span>
+            <span className="font-medium">{t('discoverMore')}</span>
             <Image
               src="/icons/icon-arrow-right.svg"
               alt="arrow-right"

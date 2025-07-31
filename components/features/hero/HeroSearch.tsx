@@ -1,6 +1,9 @@
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 
-export function HeroSearch() {
+export async function HeroSearch() {
+  const t = await getTranslations('search');
+
   return (
     <div className="mx-auto w-full max-w-xl">
       {/* Mobile Layout */}
@@ -8,7 +11,7 @@ export function HeroSearch() {
         {/* Arrival & Departure */}
         <div className="flex flex-col gap-1">
           <h3 className="tracking-tightest leading-[1.5em] font-medium text-blue-900">
-            Arrival & Departure
+            {t('arrivalDeparture')}
           </h3>
           <div className="flex items-center gap-3 rounded-xl bg-gray-100 px-3 py-4">
             <Image
@@ -18,7 +21,7 @@ export function HeroSearch() {
               height={24}
             />
             <span className="tracking-tightest text-sm leading-[1.5em] font-light text-blue-700">
-              Select Date
+              {t('selectDate')}
             </span>
           </div>
         </div>
@@ -26,7 +29,7 @@ export function HeroSearch() {
         {/* Person */}
         <div className="flex flex-col gap-1">
           <h3 className="tracking-tightest leading-[1.5em] font-medium text-blue-900">
-            Person
+            {t('person')}
           </h3>
           <div className="flex items-center gap-3 rounded-xl bg-gray-100 px-3 py-4">
             <Image
@@ -36,7 +39,7 @@ export function HeroSearch() {
               height={24}
             />
             <span className="tracking-tightest text-sm leading-[1.5em] font-light text-blue-700">
-              0 Person
+              {t('zeroPerson')}
             </span>
           </div>
         </div>
@@ -44,7 +47,7 @@ export function HeroSearch() {
         {/* Search Button */}
         <button className="flex w-full items-center justify-center gap-3 rounded-xl bg-blue-900 p-3 text-white">
           <span className="tracking-tightest text-sm leading-[1.5em] font-light">
-            Find It
+            {t('findIt')}
           </span>
           <Image
             src="/icons/Icon-search.svg"
@@ -68,7 +71,7 @@ export function HeroSearch() {
                 height={24}
               />
               <span className="tracking-tightest text-sm leading-[1.5em] font-light text-blue-700">
-                Select Date
+                {t('selectDate')}
               </span>
             </div>
           </div>
@@ -83,7 +86,7 @@ export function HeroSearch() {
                 height={24}
               />
               <span className="tracking-tightest text-sm leading-[1.5em] font-light text-blue-700">
-                0 Person
+                {t('zeroPerson')}
               </span>
             </div>
           </div>

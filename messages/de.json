@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "ourStays": "Unsere Unterkünfte",
+    "whyMerano": "Warum Meran",
+    "aboutUs": "Über Uns",
+    "menu": "Menü"
+  },
+  "languages": {
+    "english": "Englisch (EN)",
+    "italian": "Italienisch (IT)",
+    "german": "Deutsch (DE)"
+  },
+  "search": {
+    "arrivalDeparture": "Ankunft & Abreise",
+    "selectDate": "Datum Auswählen",
+    "person": "Person",
+    "zeroPerson": "0 Person",
+    "findIt": "Finden"
+  },
+  "buttons": {
+    "discoverMore": "Mehr Entdecken"
+  },
+  "accommodations": {
+    "priceInfo": "Ab {price} / Nacht"
+  },
+  "footer": {
+    "contactUs": "Kontaktiere Uns",
+    "followUs": "Folge Uns",
+    "copyright": "© 2024 Stay Merano. Alle Rechte vorbehalten."
+  }
+}

@@ -1,25 +1,18 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { getTranslations } from 'next-intl/server';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
-const navigation = [
-  { label: 'Home', href: '/' },
-  { label: 'Our Stays', href: '#our-stays' },
-  { label: 'Why Merano', href: '#why-merano' },
-  { label: 'About Us', href: '#about' }
-];
+export async function Header() {
+  const t = await getTranslations('navigation');
+  const tLang = await getTranslations('languages');
 
-const languages = [
-  { code: 'EN', label: 'English (EN)' },
-  { code: 'IT', label: 'Italy (IT)' },
-  { code: 'DE', label: 'German (DE)' }
-];
-
-export function Header() {
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const navigation = [
+    { label: t('home'), href: '/' },
+    { label: t('ourStays'), href: '#our-stays' },
+    { label: t('whyMerano'), href: '#why-merano' },
+    { label: t('aboutUs'), href: '#about' }
+  ];
 
   return (
     <header className="absolute top-0 right-0 left-0 z-50 mx-auto w-[387px] pt-5 2xl:w-full 2xl:pt-[52px]">
@@ -32,7 +25,7 @@ export function Header() {
             width={24}
             height={24}
           />
-          <span className="font-dm-sans font-medium">English (EN)</span>
+          <span className="font-dm-sans font-medium">{tLang('english')}</span>
           <svg
             className="h-4 w-4"
             viewBox="0 0 24 24"
@@ -72,60 +65,12 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button className="p-4 text-white 2xl:hidden">
-            <span className="font-dm-sans">Menu</span>
+            <span className="font-dm-sans">{t('menu')}</span>
           </button>
         </div>
 
         {/* Language Selector */}
-        <div className="relative hidden 2xl:block">
-          <button
-            onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-            className="flex items-center gap-3 text-white transition-colors hover:text-white/80"
-          >
-            <Image
-              src="/icons/icon-world.svg"
-              alt="Language"
-              width={24}
-              height={24}
-            />
-            <span className="font-dm-sans font-medium">
-              {selectedLanguage.label}
-            </span>
-            <svg
-              className={`h-4 w-4 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-
-          {/* Dropdown */}
-          {isLanguageOpen && (
-            <div className="absolute top-full right-0 mt-2 w-[160px] overflow-hidden rounded-xl bg-blue-900 p-3">
-              {languages.map(lang => (
-                <button
-                  key={lang.code}
-                  onClick={() => {
-                    setSelectedLanguage(lang);
-                    setIsLanguageOpen(false);
-                  }}
-                  className={`tracking-tightest w-full rounded-xl px-3 py-1 text-left leading-[2em] text-blue-400 transition-colors hover:bg-blue-800 ${
-                    selectedLanguage.code === lang.code ? 'bg-blue-800' : ''
-                  }`}
-                >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+        <LanguageSwitcher />
       </div>
     </header>
   );
