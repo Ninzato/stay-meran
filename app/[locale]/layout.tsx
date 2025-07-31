@@ -24,16 +24,17 @@ export const metadata: Metadata = {
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: LocaleLayoutProps) {
+  const { locale } = await params;
   console.log('🔧 LocaleLayout render for locale:', locale);
   
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     console.log('❌ Invalid locale, redirecting to 404');
     notFound();
   }

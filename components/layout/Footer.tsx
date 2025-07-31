@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Section } from '@/components/ui';
 
 export function Footer() {
@@ -204,20 +205,20 @@ export function Footer() {
               </h3>
               <ul className="flex flex-col gap-4">
                 <li>
-                  <a
+                  <Link
                     href="/about"
                     className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/merano"
                     className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
                     Merano
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
