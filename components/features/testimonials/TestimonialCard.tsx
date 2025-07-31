@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import type { Testimonial } from '@/lib/constants';
+import type { Testimonial } from '@/lib/types/content';
 import { cn } from '@/lib/utils/cn';
 
 interface TestimonialCardProps {

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Button } from '@/components/ui';
-import type { Accommodation } from '@/lib/constants';
+import type { Accommodation } from '@/lib/types/content';
 
 interface AccommodationCardProps {
   accommodation: Accommodation;

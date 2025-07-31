@@ -1,13 +1,6 @@
 import Image from 'next/image';
 import { HeroSearch } from './HeroSearch';
-
-interface HeroContent {
-  title1: string;
-  title2: string;
-  subtitle: string;
-  backgroundImage: string;
-  searchPlaceholder: string;
-}
+import type { HeroContent } from '@/lib/types/content';
 
 interface HeroSectionProps {
   heroContent: HeroContent;

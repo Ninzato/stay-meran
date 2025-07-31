@@ -1,7 +1,7 @@
 import { Section } from '@/components/ui';
 import { TestimonialCard } from './TestimonialCard';
 import { getTranslations } from 'next-intl/server';
-import type { Testimonial } from '@/lib/constants';
+import type { Testimonial } from '@/lib/types/content';
 
 interface TestimonialsGridProps {
   testimonials: Testimonial[];

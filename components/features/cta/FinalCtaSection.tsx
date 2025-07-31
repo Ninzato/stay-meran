@@ -1,35 +1,12 @@
-'use client';
-
 import Image from 'next/image';
 import { Button, Section } from '@/components/ui';
-import { useCTAContent } from '@/lib/hooks/useSanityData';
+import type { CTAContent } from '@/lib/types/content';
 
-export function FinalCtaSection() {
-  const { ctaContent, loading, error } = useCTAContent();
+interface FinalCtaSectionProps {
+  ctaContent: CTAContent;
+}
 
-  if (loading) {
-    return (
-      <Section className="my-[106px] overflow-hidden">
-        <div className="relative flex min-h-[504px] items-center justify-center rounded-xl bg-gray-200 animate-pulse">
-          <div className="z-10 flex flex-col gap-6 text-center">
-            <div className="h-16 bg-gray-300 rounded w-80 mx-auto"></div>
-            <div className="h-12 bg-gray-300 rounded w-96 mx-auto"></div>
-            <div className="h-12 bg-gray-300 rounded w-32 mx-auto"></div>
-          </div>
-        </div>
-      </Section>
-    );
-  }
-
-  if (error || !ctaContent) {
-    return (
-      <Section className="my-[106px] overflow-hidden">
-        <div className="text-center text-gray-500">
-          {error || 'CTA content not found'}
-        </div>
-      </Section>
-    );
-  }
+export function FinalCtaSection({ ctaContent }: FinalCtaSectionProps) {
 
   return (
     <Section className="my-[106px] overflow-hidden">

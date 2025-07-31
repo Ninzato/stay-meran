@@ -18,12 +18,13 @@ import {
 } from '@/lib/sanity/server'
 
 interface HomeProps {
-  params: {
+  params: Promise<{
     locale: Locale
-  }
+  }>
 }
 
-export default async function Home({ params: { locale } }: HomeProps) {
+export default async function Home({ params }: HomeProps) {
+  const { locale } = await params
   // Fetch all data server-side
   const [accommodations, testimonials, heroContent, sections, ctaContent] = await Promise.all([
     getAccommodationsServer(locale),

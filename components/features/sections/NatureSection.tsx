@@ -1,31 +1,12 @@
-'use client';
-
 import Image from 'next/image';
 import { Section } from '@/components/ui';
-import { useSectionContent } from '@/lib/hooks/useSanityData';
+import type { SectionContent } from '@/lib/types/content';
 
-export function NatureSection() {
-  const { sections, loading, error } = useSectionContent();
-  const natureContent = sections.find(
-    section => section.id === 'breathtaking-nature'
-  );
+interface NatureSectionProps {
+  sectionContent: SectionContent;
+}
 
-  if (loading) {
-    return (
-      <Section className="mt-14">
-        <div className="flex flex-col gap-5 2xl:flex-row 2xl:gap-20">
-          <div className="order-2 flex flex-col gap-14 2xl:order-1">
-            <div className="h-32 bg-gray-200 animate-pulse rounded"></div>
-          </div>
-          <div className="relative order-1 w-full flex-grow overflow-hidden rounded-xl 2xl:order-2">
-            <div className="h-96 bg-gray-200 animate-pulse"></div>
-          </div>
-        </div>
-      </Section>
-    );
-  }
-
-  if (error || !natureContent) return null;
+export function NatureSection({ sectionContent }: NatureSectionProps) {
 
   return (
     <Section className="mt-14">
@@ -35,12 +16,12 @@ export function NatureSection() {
           <div className="flex h-fit w-full flex-shrink-0 flex-col gap-2 rounded-r-xl rounded-b-xl bg-white p-5 2xl:relative 2xl:w-[409px] 2xl:before:absolute 2xl:before:top-0 2xl:before:-left-[50vw] 2xl:before:h-full 2xl:before:w-[50vw] 2xl:before:bg-white 2xl:before:content-['']">
             {/* Title */}
             <h2 className="tracking-tightest text-xl leading-[1.5em] font-medium text-blue-900 2xl:text-2xl">
-              {natureContent.title}
+              {sectionContent.title}
             </h2>
 
             {/* Description */}
             <p className="tracking-tightest leading-[1.5em] font-light text-blue-800">
-              {natureContent.content}
+              {sectionContent.content}
             </p>
           </div>
           <div className="hidden 2xl:block">
@@ -69,9 +50,9 @@ export function NatureSection() {
 
         {/* Right: Image */}
         <div className="relative order-1 w-full flex-grow overflow-hidden rounded-xl 2xl:order-2">
-          {natureContent.image && (
+          {sectionContent.image && (
             <Image
-              src={natureContent.image}
+              src={sectionContent.image}
               alt="Breathtaking nature in Merano"
               width={711}
               height={488}

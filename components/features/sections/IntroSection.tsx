@@ -1,11 +1,5 @@
 import { Section } from '@/components/ui';
-
-interface SectionContent {
-  id: string;
-  title: string;
-  content: string;
-  image?: string;
-}
+import type { SectionContent } from '@/lib/types/content';
 
 interface IntroSectionProps {
   sectionContent: SectionContent;

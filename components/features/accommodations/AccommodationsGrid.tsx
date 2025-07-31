@@ -1,6 +1,6 @@
 import { AccommodationCard } from './AccommodationCard';
 import { Section } from '@/components/ui';
-import type { Accommodation } from '@/lib/constants';
+import type { Accommodation } from '@/lib/types/content';
 
 interface AccommodationsGridProps {
   accommodations: Accommodation[];
