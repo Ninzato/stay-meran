@@ -1,24 +1,28 @@
-// import { Container } from "@/components/ui";
-import { mockSections } from '@/lib/constants';
 import { Section } from '@/components/ui';
 
-export function IntroSection() {
-  const introContent = mockSections.find(section => section.id === 'intro');
+interface SectionContent {
+  id: string;
+  title: string;
+  content: string;
+  image?: string;
+}
 
-  if (!introContent) return null;
+interface IntroSectionProps {
+  sectionContent: SectionContent;
+}
+
+export function IntroSection({ sectionContent }: IntroSectionProps) {
 
   return (
     <Section
       id="our-stays"
       className="mt-16"
     >
-      {/* <Container> */}
       <div className="w-[361px] 2xl:w-[1065px]">
         <p className="tracking-tightest text-[32px] leading-[1.5em] font-medium text-blue-900 2xl:text-[44px]">
-          {introContent.content}
+          {sectionContent.content}
         </p>
       </div>
-      {/* </Container> */}
     </Section>
   );
 }

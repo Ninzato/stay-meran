@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 
-export async function HeroSearch() {
+interface HeroSearchProps {
+  searchPlaceholder?: string;
+}
+
+export async function HeroSearch({ searchPlaceholder }: HeroSearchProps) {
   const t = await getTranslations('search');
 
   return (

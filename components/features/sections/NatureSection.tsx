@@ -1,13 +1,31 @@
+'use client';
+
 import Image from 'next/image';
 import { Section } from '@/components/ui';
-import { mockSections } from '@/lib/constants';
+import { useSectionContent } from '@/lib/hooks/useSanityData';
 
 export function NatureSection() {
-  const natureContent = mockSections.find(
+  const { sections, loading, error } = useSectionContent();
+  const natureContent = sections.find(
     section => section.id === 'breathtaking-nature'
   );
 
-  if (!natureContent) return null;
+  if (loading) {
+    return (
+      <Section className="mt-14">
+        <div className="flex flex-col gap-5 2xl:flex-row 2xl:gap-20">
+          <div className="order-2 flex flex-col gap-14 2xl:order-1">
+            <div className="h-32 bg-gray-200 animate-pulse rounded"></div>
+          </div>
+          <div className="relative order-1 w-full flex-grow overflow-hidden rounded-xl 2xl:order-2">
+            <div className="h-96 bg-gray-200 animate-pulse"></div>
+          </div>
+        </div>
+      </Section>
+    );
+  }
+
+  if (error || !natureContent) return null;
 
   return (
     <Section className="mt-14">

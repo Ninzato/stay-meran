@@ -1,15 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Section } from '@/components/ui';
+import { getTranslations } from 'next-intl/server';
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations('footer');
   return (
     <footer className="bg-blue-900 text-white">
       <Section className="flex flex-col gap-8 pt-[68px] pb-[91px]">
         {/* Header Message */}
         <div className="flex flex-col gap-8">
           <h2 className="tracking-tightest text-2xl font-medium 2xl:text-[40px]">
-            Contact us for more details about your perfect stay in Merano.
+            {t('contactUs')}
           </h2>
 
           {/* Contact Buttons */}
@@ -22,7 +24,7 @@ export function Footer() {
                 height={24}
               />
               <span className="tracking-tightest text-xl leading-[2em]">
-                Email:
+                {t('email')}
               </span>
               <span className="tracking-tightest text-xl leading-[2em]">
                 info@staymeran.com
@@ -36,7 +38,7 @@ export function Footer() {
                 height={24}
               />
               <span className="tracking-tightest text-xl leading-[2em]">
-                Phone:
+                {t('phone')}
               </span>
               <span className="tracking-tightest text-xl leading-[2em]">
                 +39 123 456 7890
@@ -82,7 +84,7 @@ export function Footer() {
             {/* About */}
             <div className="flex w-[195px] flex-col gap-3">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
-                About
+                {t('about')}
               </h3>
               <ul className="flex flex-col gap-3">
                 <li>
@@ -90,7 +92,7 @@ export function Footer() {
                     href="#about"
                     className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
-                    About Us
+                    {t('aboutUs')}
                   </a>
                 </li>
                 <li>
@@ -98,7 +100,7 @@ export function Footer() {
                     href="#why-merano"
                     className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
-                    Merano
+                    {t('merano')}
                   </a>
                 </li>
               </ul>
@@ -107,7 +109,7 @@ export function Footer() {
             {/* Our Stays */}
             <div className="flex w-[298px] flex-col gap-3">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
-                Our Stays
+                {t('ourStays')}
               </h3>
               <ul className="flex flex-col gap-3">
                 <li>
@@ -201,7 +203,7 @@ export function Footer() {
             {/* About */}
             <div className="flex flex-col gap-4">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
-                About
+                {t('about')}
               </h3>
               <ul className="flex flex-col gap-4">
                 <li>
@@ -209,7 +211,7 @@ export function Footer() {
                     href="/about"
                     className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
-                    About Us
+                    {t('aboutUs')}
                   </Link>
                 </li>
                 <li>
@@ -217,7 +219,7 @@ export function Footer() {
                     href="/merano"
                     className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
-                    Merano
+                    {t('merano')}
                   </Link>
                 </li>
               </ul>
@@ -226,7 +228,7 @@ export function Footer() {
             {/* Our Stays */}
             <div className="flex flex-col gap-4">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
-                Our Stays
+                {t('ourStays')}
               </h3>
               <ul className="flex flex-col gap-4">
                 <li>
@@ -259,7 +261,7 @@ export function Footer() {
             {/* Our Social Media */}
             <div className="flex flex-col gap-4">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
-                Our Social Media
+                {t('ourSocialMedia')}
               </h3>
               <div className="flex gap-6">
                 <a
@@ -377,7 +379,7 @@ export function Footer() {
               </button>
               <button className="flex items-center gap-3">
                 <span className="tracking-tightest leading-[2em] text-blue-400">
-                  Legal
+                  {t('legal')}
                 </span>
                 <svg
                   className="h-4 w-4"
@@ -397,7 +399,7 @@ export function Footer() {
 
             {/* Left: Copyright */}
             <p className="tracking-tightest order-2 leading-[2em] text-blue-400 2xl:order-1">
-              Copyright ©2025
+              {t('copyright')}
             </p>
           </div>
         </div>

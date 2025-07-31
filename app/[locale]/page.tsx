@@ -8,8 +8,34 @@ import {
 import { AccommodationsGrid } from '@/components/features/accommodations';
 import { TestimonialsGrid } from '@/components/features/testimonials';
 import { FinalCtaSection } from '@/components/features/cta';
+import type { Locale } from '@/lib/i18n/config'
+import {
+  getAccommodationsServer,
+  getTestimonialsServer,
+  getHeroContentServer,
+  getSectionContentServer,
+  getCTAContentServer
+} from '@/lib/sanity/server'
 
-export default function Home() {
+interface HomeProps {
+  params: {
+    locale: Locale
+  }
+}
+
+export default async function Home({ params: { locale } }: HomeProps) {
+  // Fetch all data server-side
+  const [accommodations, testimonials, heroContent, sections, ctaContent] = await Promise.all([
+    getAccommodationsServer(locale),
+    getTestimonialsServer(locale),
+    getHeroContentServer(locale),
+    getSectionContentServer(locale),
+    getCTAContentServer(locale)
+  ])
+
+  const introContent = sections.find(section => section.id === 'intro')
+  const whyMeranoContent = sections.find(section => section.id === 'why-merano')
+  const natureContent = sections.find(section => section.id === 'breathtaking-nature')
   return (
     <div className="bg-background text-foreground min-h-screen">
       {/* Header */}
@@ -18,27 +44,27 @@ export default function Home() {
       {/* Main Content */}
       <main>
         {/* Hero Section */}
-        <HeroSection />
+        {heroContent && <HeroSection heroContent={heroContent} />}
 
         {/* Intro Section */}
-        <IntroSection />
+        {introContent && <IntroSection sectionContent={introContent} />}
 
         {/* Accommodations Grid */}
-        <AccommodationsGrid />
+        <AccommodationsGrid accommodations={accommodations} />
 
         <div className="bg-blue-100 py-10">
           {/* Why Merano Section */}
-          <WhyMeranoSection />
+          {whyMeranoContent && <WhyMeranoSection sectionContent={whyMeranoContent} />}
 
           {/* Breathtaking Nature Section */}
-          <NatureSection />
+          {natureContent && <NatureSection sectionContent={natureContent} />}
         </div>
 
         {/* Testimonials Grid */}
-        <TestimonialsGrid />
+        <TestimonialsGrid testimonials={testimonials} />
 
         {/* Final CTA Section */}
-        <FinalCtaSection />
+        {ctaContent && <FinalCtaSection ctaContent={ctaContent} />}
       </main>
 
       {/* Footer */}

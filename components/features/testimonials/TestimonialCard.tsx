@@ -24,7 +24,7 @@ export function TestimonialCard({
         }
       )}
     >
-      <div className="flex flex-col justify-between gap-5">
+      <div className="flex flex-col h-full justify-between gap-5">
         {/* Quote */}
         <p
           className={cn(

@@ -24,9 +24,20 @@
   "accommodations": {
     "priceInfo": "Ab {price} / Nacht"
   },
+  "testimonials": {
+    "title": "Was Unsere Gäste Über StayMeran Sagen",
+    "subtitle": "Wir sind stolz darauf, unseren Gästen einen außergewöhnlichen Aufenthalt zu bieten. Erfahren Sie, was sie über ihre Erfahrungen sagen und warum sie gerne wiederkommen."
+  },
   "footer": {
-    "contactUs": "Kontaktiere Uns",
-    "followUs": "Folge Uns",
-    "copyright": "© 2024 Stay Merano. Alle Rechte vorbehalten."
+    "contactUs": "Kontaktieren Sie uns für weitere Details zu Ihrem perfekten Aufenthalt in Meran.",
+    "email": "E-Mail:",
+    "phone": "Telefon:",
+    "about": "Über Uns",
+    "aboutUs": "Über Uns",
+    "merano": "Meran",
+    "ourStays": "Unsere Unterkünfte",
+    "ourSocialMedia": "Unsere Sozialen Medien",
+    "legal": "Rechtliches",
+    "copyright": "Copyright ©2025"
   }
 }
