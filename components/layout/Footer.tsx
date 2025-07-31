@@ -1,145 +1,406 @@
-import { Container } from '@/components/ui';
+import Image from 'next/image';
+import { Section } from '@/components/ui';
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background">
-      <Container>
-        <div className="py-12">
-          {/* Main Footer Content */}
-          <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-4">
-            {/* Contact Info */}
-            <div className="md:col-span-2">
-              <h3 className="mb-4 text-lg font-semibold">
-                Contact us for more details about your perfect stay in Merano.
-              </h3>
-              <div className="space-y-2">
-                <p className="flex items-center">
-                  <span className="mr-2">📧</span>
-                  info@staymeran.com
-                </p>
-                <p className="flex items-center">
-                  <span className="mr-2">📞</span>
-                  +39 123 456 789
-                </p>
+    <footer className="bg-blue-900 text-white">
+      <Section className="flex flex-col gap-8 pt-[68px] pb-[91px]">
+        {/* Header Message */}
+        <div className="flex flex-col gap-8">
+          <h2 className="tracking-tightest text-2xl font-medium 2xl:text-[40px]">
+            Contact us for more details about your perfect stay in Merano.
+          </h2>
+
+          {/* Contact Buttons */}
+          <div className="flex flex-col gap-5 2xl:flex-row">
+            <button className="flex items-center gap-3 rounded-full px-6 py-3 text-left outline outline-blue-800 transition-colors hover:cursor-pointer hover:bg-white/10">
+              <Image
+                src="/icons/icon-email.svg"
+                alt="Email"
+                width={24}
+                height={24}
+              />
+              <span className="tracking-tightest text-xl leading-[2em]">
+                Email:
+              </span>
+              <span className="tracking-tightest text-xl leading-[2em]">
+                info@staymeran.com
+              </span>
+            </button>
+            <button className="flex items-center gap-3 rounded-full px-6 py-3 text-left outline outline-blue-800 transition-colors hover:cursor-pointer hover:bg-white/10">
+              <Image
+                src="/icons/icon-phone.svg"
+                alt="Phone"
+                width={24}
+                height={24}
+              />
+              <span className="tracking-tightest text-xl leading-[2em]">
+                Phone:
+              </span>
+              <span className="tracking-tightest text-xl leading-[2em]">
+                +39 123 456 7890
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="h-[1px] bg-blue-800"></div>
+
+        {/* Main Content Area */}
+        <div>
+          {/* Desktop Layout */}
+          <div className="hidden gap-8 2xl:flex">
+            {/* Left: Logo + Address + Rating Card */}
+            <div className="flex w-[375px] flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/icons/icon-logo-dummy.svg"
+                  alt="Stay Merano"
+                  width={40}
+                  height={40}
+                />
+                <span className="tracking-tightest text-xl leading-[2em] font-medium">
+                  Stay Merano
+                </span>
               </div>
+              <p className="tracking-tightest leading-[2em]">
+                Bernhard Johannes Str. 1, 39012 Merano
+              </p>
+
+              {/* Rating Card */}
+              <Image
+                src="/images/rating.png"
+                alt="Booking.com Traveller Review Awards 2025 - Rating 9.3"
+                width={192}
+                height={136}
+                className="rounded-lg"
+              />
             </div>
 
-            {/* Navigation Links */}
-            <div>
-              <h4 className="mb-4 font-semibold">About</h4>
-              <ul className="space-y-2">
+            {/* About */}
+            <div className="flex w-[195px] flex-col gap-3">
+              <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
+                About
+              </h3>
+              <ul className="flex flex-col gap-3">
                 <li>
                   <a
-                    href="/our-story"
-                    className="hover:text-background/70 transition-colors"
-                  >
-                    Our Story
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/why-merano"
-                    className="hover:text-background/70 transition-colors"
-                  >
-                    Why Merano
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/about"
-                    className="hover:text-background/70 transition-colors"
+                    href="#about"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
                     About Us
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="#why-merano"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
+                  >
+                    Merano
+                  </a>
+                </li>
               </ul>
             </div>
 
-            {/* Our Story */}
-            <div>
-              <h4 className="mb-4 font-semibold">Our Story</h4>
-              <ul className="space-y-2">
+            {/* Our Stays */}
+            <div className="flex w-[298px] flex-col gap-3">
+              <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
+                Our Stays
+              </h3>
+              <ul className="flex flex-col gap-3">
                 <li>
                   <a
-                    href="/accommodations"
-                    className="hover:text-background/70 transition-colors"
+                    href="#"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
-                    Accommodations
+                    Helles Apartment in historischer Villa
                   </a>
                 </li>
                 <li>
                   <a
-                    href="/booking"
-                    className="hover:text-background/70 transition-colors"
+                    href="#"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
-                    Booking
+                    Apartment Franz
                   </a>
                 </li>
                 <li>
                   <a
-                    href="/contact"
-                    className="hover:text-background/70 transition-colors"
+                    href="#"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
                   >
-                    Contact
+                    Apartment Sissi mit Balkon
                   </a>
                 </li>
               </ul>
+            </div>
+
+            {/* Right: Social Icons */}
+            <div className="flex w-[250px] flex-col items-end justify-between gap-3">
+              <div className="flex gap-6">
+                <a
+                  href="#"
+                  className="rounded-full bg-blue-800 p-2 transition-colors hover:bg-white/20"
+                >
+                  <Image
+                    src="/icons/icon-whatsapp.svg"
+                    alt="WhatsApp"
+                    width={24}
+                    height={24}
+                  />
+                </a>
+                <a
+                  href="#"
+                  className="rounded-full bg-blue-800 p-2 transition-colors hover:bg-white/20"
+                >
+                  <Image
+                    src="/icons/icon-instagram.svg"
+                    alt="Instagram"
+                    width={24}
+                    height={24}
+                  />
+                </a>
+              </div>
+
+              {/* Content, Design and Code By */}
+              <div className="flex flex-col gap-2">
+                <Image
+                  src="/images/design-by.svg"
+                  alt="Content, design and code by"
+                  width={183}
+                  height={12}
+                />
+                <div className="flex gap-4">
+                  <div className="flex h-[92px] w-[103px] items-center justify-center rounded-lg bg-blue-800">
+                    <Image
+                      src="/icons/icon-mountain.svg"
+                      alt="Mountain"
+                      width={60}
+                      height={42}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex h-[92px] w-[103px] items-center justify-center rounded-lg bg-blue-800">
+                    <Image
+                      src="/icons/icon-marketing.svg"
+                      alt="Websites marketing social media"
+                      width={78}
+                      height={46}
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Bottom Footer */}
-          <div className="border-background/20 border-t pt-8">
-            <div className="flex flex-col items-center justify-between md:flex-row">
-              {/* Logo and Copyright */}
-              <div className="mb-4 flex items-center space-x-4 md:mb-0">
-                <div className="text-xl font-bold">Stay Meran</div>
-                <span className="text-background/70">© 2024</span>
+          {/* Mobile Layout */}
+          <div className="flex flex-col gap-8 2xl:hidden">
+            {/* About */}
+            <div className="flex flex-col gap-4">
+              <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
+                About
+              </h3>
+              <ul className="flex flex-col gap-4">
+                <li>
+                  <a
+                    href="/about"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/merano"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
+                  >
+                    Merano
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Our Stays */}
+            <div className="flex flex-col gap-4">
+              <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
+                Our Stays
+              </h3>
+              <ul className="flex flex-col gap-4">
+                <li>
+                  <a
+                    href="#"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
+                  >
+                    Helles Apartment in historischer Villa
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
+                  >
+                    Apartment Franz
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="tracking-tightest leading-[2em] text-blue-400 transition-colors hover:text-white"
+                  >
+                    Apartment Sissi mit Balkon
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Our Social Media */}
+            <div className="flex flex-col gap-4">
+              <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
+                Our Social Media
+              </h3>
+              <div className="flex gap-6">
+                <a
+                  href="#"
+                  className="rounded-full bg-blue-800 p-2"
+                >
+                  <Image
+                    src="/icons/icon-whatsapp.svg"
+                    alt="WhatsApp"
+                    width={24}
+                    height={24}
+                  />
+                </a>
+                <a
+                  href="#"
+                  className="rounded-full bg-blue-800 p-2"
+                >
+                  <Image
+                    src="/icons/icon-instagram.svg"
+                    alt="Instagram"
+                    width={24}
+                    height={24}
+                  />
+                </a>
               </div>
+            </div>
 
-              {/* Social Links & Language */}
-              <div className="flex items-center space-x-4">
-                <span className="text-background/70">Language:</span>
-                <div className="flex space-x-2">
-                  <button className="text-background hover:text-background/70">
-                    🇺🇸 ENG
-                  </button>
-                  <button className="text-background hover:text-background/70">
-                    🇩🇪 DE
-                  </button>
+            {/* Logo + Address */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/icons/icon-logo-dummy.svg"
+                  alt="Stay Merano"
+                  width={40}
+                  height={40}
+                />
+                <span className="tracking-tightest text-xl leading-[2em] font-medium">
+                  Stay Merano
+                </span>
+              </div>
+              <p className="tracking-tightest leading-[2em]">
+                Bernhard Johannes Str. 1, 39012 Merano
+              </p>
+
+              {/* Rating Card */}
+              <Image
+                src="/images/rating.png"
+                alt="Booking.com Traveller Review Awards 2025 - Rating 9.3"
+                width={192}
+                height={136}
+                className="rounded-lg"
+              />
+            </div>
+
+            {/* Divider */}
+            <div className="h-[1px] bg-blue-800"></div>
+
+            {/* Content, Design and Code By */}
+            <div className="flex flex-col gap-2">
+              <Image
+                src="/images/design-by.svg"
+                alt="Content, design and code by"
+                width={183}
+                height={12}
+              />
+              <div className="flex gap-4">
+                <div className="flex h-[92px] w-[103px] items-center justify-center rounded-lg bg-blue-800">
+                  <Image
+                    src="/icons/icon-mountain.svg"
+                    alt="Mountain"
+                    width={60}
+                    height={42}
+                    className="object-cover"
+                  />
                 </div>
-
-                {/* Social Icons Placeholder */}
-                <div className="ml-4 flex space-x-3">
-                  <a
-                    href="#"
-                    className="text-background hover:text-background/70"
-                  >
-                    <svg
-                      className="h-5 w-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    className="text-background hover:text-background/70"
-                  >
-                    <svg
-                      className="h-5 w-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
-                    </svg>
-                  </a>
+                <div className="flex h-[92px] w-[103px] items-center justify-center rounded-lg bg-blue-800">
+                  <Image
+                    src="/icons/icon-marketing.svg"
+                    alt="Websites marketing social media"
+                    width={78}
+                    height={46}
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </Container>
+
+        {/* Divider */}
+        <div className="h-[1px] bg-blue-800"></div>
+
+        {/* Bottom Section */}
+        <div>
+          <div className="flex flex-col gap-5 2xl:flex-row 2xl:items-center 2xl:justify-between">
+            {/* Right: Dropdowns */}
+            <div className="order-1 flex gap-4 2xl:order-2 2xl:flex-row 2xl:gap-6">
+              <button className="flex items-center gap-3">
+                <span className="tracking-tightest leading-[2em] text-blue-400">
+                  English (EN)
+                </span>
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <button className="flex items-center gap-3">
+                <span className="tracking-tightest leading-[2em] text-blue-400">
+                  Legal
+                </span>
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Left: Copyright */}
+            <p className="tracking-tightest order-2 leading-[2em] text-blue-400 2xl:order-1">
+              Copyright ©2025
+            </p>
+          </div>
+        </div>
+      </Section>
     </footer>
   );
 }
