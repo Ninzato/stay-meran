@@ -15,6 +15,7 @@ export function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <div
+      data-testimonial-card
       className={cn(
         'rounded-xl border border-blue-200 bg-white p-5',
         className,
@@ -25,7 +26,6 @@ export function TestimonialCard({
       )}
     >
       <div className="flex flex-col h-full justify-between gap-5">
-        {/* Quote */}
         <p
           className={cn(
             'tracking-tightest text-xl leading-[2em] font-normal text-blue-800',
@@ -37,7 +37,6 @@ export function TestimonialCard({
           {testimonial.quote}
         </p>
 
-        {/* Guest Info */}
         <div className="flex items-center justify-between gap-3">
           <div>
             <h4

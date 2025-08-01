@@ -33,7 +33,7 @@ export function LanguageSwitcher() {
     <div className="relative hidden 2xl:block">
       <button
         onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-        className="flex items-center gap-3 text-white transition-colors hover:text-white/80"
+        className="flex cursor-pointer items-center gap-3 text-white transition-colors hover:text-white/80"
       >
         <Image
           src="/icons/icon-world.svg"
@@ -66,7 +66,7 @@ export function LanguageSwitcher() {
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
-              className={`tracking-tightest w-full rounded-xl px-3 py-1 text-left leading-[2em] text-blue-400 transition-colors hover:bg-blue-800 ${
+              className={`tracking-tightest w-full cursor-pointer rounded-xl px-3 py-1 text-left leading-[2em] text-blue-400 transition-colors hover:bg-blue-800 ${
                 currentLanguage.code === lang.code ? 'bg-blue-800' : ''
               }`}
             >

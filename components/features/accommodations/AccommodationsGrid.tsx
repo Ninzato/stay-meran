@@ -1,4 +1,5 @@
 import { AccommodationCard } from './AccommodationCard';
+import { AccommodationCardAnimated } from './AccommodationCardAnimated';
 import { Section } from '@/components/ui';
 import type { Accommodation } from '@/lib/types/content';
 
@@ -20,11 +21,14 @@ export function AccommodationsGrid({ accommodations }: AccommodationsGridProps) 
   return (
     <Section className="mt-20 mb-16 2xl:my-10">
       <div className="grid grid-cols-1 gap-10 2xl:grid-cols-3 2xl:gap-[19px]">
-        {accommodations.map(accommodation => (
-          <AccommodationCard
+        {accommodations.map((accommodation) => (
+          <AccommodationCardAnimated
             key={accommodation.id}
-            accommodation={accommodation}
-          />
+          >
+            <AccommodationCard
+              accommodation={accommodation}
+            />
+          </AccommodationCardAnimated>
         ))}
       </div>
     </Section>

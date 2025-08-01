@@ -7,37 +7,33 @@ interface TestimonialsGridProps {
   testimonials: Testimonial[];
 }
 
-export async function TestimonialsGrid({ testimonials }: TestimonialsGridProps) {
+export async function TestimonialsGrid({
+  testimonials
+}: TestimonialsGridProps) {
   const t = await getTranslations('testimonials');
 
   if (!testimonials.length) {
     return (
-      <Section className="mt-16 mb-20">
-        <div className="text-center text-gray-500">
-          No testimonials found
-        </div>
+      <Section className="mt-28 mb-20">
+        <div className="text-center text-gray-500">No testimonials found</div>
       </Section>
     );
   }
 
   return (
-    <Section className="mt-16 mb-20">
+    <Section className="mt-28 mb-20">
       <div className="flex flex-col gap-5 2xl:gap-10">
         <div className="flex flex-col gap-5 text-left 2xl:text-center">
-          {/* Section Title */}
           <h2 className="tracking-tightest text-[32px] leading-[1.5em] font-medium 2xl:text-[44px]">
             {t('title')}
           </h2>
 
-          {/* Section Subtitle */}
           <p className="tracking-tightest text-base leading-[2em] font-light text-blue-800 2xl:text-xl 2xl:leading-[1.5em] 2xl:font-normal">
             {t('subtitle')}
           </p>
         </div>
 
-        {/* Masonry Grid Layout */}
         <div className="grid grid-cols-1 gap-6 2xl:grid-cols-3">
-          {/* Column 1: Large + Small */}
           <div className="hidden flex-col gap-6 2xl:flex">
             {testimonials[0] && (
               <TestimonialCard
@@ -55,7 +51,6 @@ export async function TestimonialsGrid({ testimonials }: TestimonialsGridProps) 
             )}
           </div>
 
-          {/* Column 2: Equal + Equal + Equal */}
           <div className="flex flex-col gap-6 2xl:h-full">
             {testimonials[2] && (
               <TestimonialCard
@@ -80,7 +75,6 @@ export async function TestimonialsGrid({ testimonials }: TestimonialsGridProps) 
             )}
           </div>
 
-          {/* Column 3: Small + Large (inverted) */}
           <div className="hidden flex-col gap-6 2xl:flex">
             {testimonials[5] && (
               <TestimonialCard
@@ -88,7 +82,6 @@ export async function TestimonialsGrid({ testimonials }: TestimonialsGridProps) 
                 variant="normal"
               />
             )}
-            {/* Use last testimonial or fallback to first */}
             {(testimonials[6] || testimonials[0]) && (
               <TestimonialCard
                 testimonial={testimonials[6] || testimonials[0]}

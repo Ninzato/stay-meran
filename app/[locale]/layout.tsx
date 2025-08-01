@@ -32,16 +32,12 @@ export default async function LocaleLayout({
   params
 }: LocaleLayoutProps) {
   const { locale } = await params;
-  console.log('🔧 LocaleLayout render for locale:', locale);
   
   if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
-    console.log('❌ Invalid locale, redirecting to 404');
     notFound();
   }
 
   const messages = await getMessages();
-  console.log('📝 Messages loaded for locale:', locale);
-  console.log('Messages keys:', Object.keys(messages));
 
   return (
     <html lang={locale}>

@@ -1,2 +1,2 @@
-// CTA Components Barrel Export
 export { FinalCtaSection } from './FinalCtaSection';
+export { FinalCtaAnimationWrapper } from './FinalCtaAnimationWrapper';

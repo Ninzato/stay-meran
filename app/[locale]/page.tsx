@@ -1,78 +1,88 @@
-import { Header, Footer } from '@/components/layout';
+import { Header, Footer, FooterAnimationWrapper } from '@/components/layout';
 import { HeroSection } from '@/components/features/hero';
 import {
   IntroSection,
   WhyMeranoSection,
-  NatureSection
+  NatureSection,
+  IntroAnimationWrapper,
+  WhyMeranoAnimationWrapper
 } from '@/components/features/sections';
 import { AccommodationsGrid } from '@/components/features/accommodations';
-import { TestimonialsGrid } from '@/components/features/testimonials';
-import { FinalCtaSection } from '@/components/features/cta';
-import type { Locale } from '@/lib/i18n/config'
+import {
+  TestimonialsGrid,
+  TestimonialAnimationWrapper
+} from '@/components/features/testimonials';
+import { FinalCtaSection, FinalCtaAnimationWrapper } from '@/components/features/cta';
+import type { Locale } from '@/lib/i18n/config';
 import {
   getAccommodationsServer,
   getTestimonialsServer,
   getHeroContentServer,
   getSectionContentServer,
   getCTAContentServer
-} from '@/lib/sanity/server'
+} from '@/lib/sanity/server';
 
 interface HomeProps {
   params: Promise<{
-    locale: Locale
-  }>
+    locale: Locale;
+  }>;
 }
 
 export default async function Home({ params }: HomeProps) {
-  const { locale } = await params
-  // Fetch all data server-side
-  const [accommodations, testimonials, heroContent, sections, ctaContent] = await Promise.all([
-    getAccommodationsServer(locale),
-    getTestimonialsServer(locale),
-    getHeroContentServer(locale),
-    getSectionContentServer(locale),
-    getCTAContentServer(locale)
-  ])
+  const { locale } = await params;
+  const [accommodations, testimonials, heroContent, sections, ctaContent] =
+    await Promise.all([
+      getAccommodationsServer(locale),
+      getTestimonialsServer(locale),
+      getHeroContentServer(locale),
+      getSectionContentServer(locale),
+      getCTAContentServer(locale)
+    ]);
 
-  const introContent = sections.find(section => section.id === 'intro')
-  const whyMeranoContent = sections.find(section => section.id === 'why-merano')
-  const natureContent = sections.find(section => section.id === 'breathtaking-nature')
+  const introContent = sections.find(section => section.id === 'intro');
+  const whyMeranoContent = sections.find(
+    section => section.id === 'why-merano'
+  );
+  const natureContent = sections.find(
+    section => section.id === 'breathtaking-nature'
+  );
   return (
     <div className="bg-background text-foreground min-h-screen">
-      {/* Header */}
       <Header />
 
-      {/* Main Content */}
       <main>
-        {/* Hero Section */}
         {heroContent && <HeroSection heroContent={heroContent} />}
 
-        {/* Intro Section + Accommodations Grid */}
-        <div className="min-h-screen">
-          {/* Intro Section */}
+        <IntroAnimationWrapper
+          id="our-stays"
+          className="min-h-screen"
+        >
           {introContent && <IntroSection sectionContent={introContent} />}
-
-          {/* Accommodations Grid */}
           <AccommodationsGrid accommodations={accommodations} />
-        </div>
+        </IntroAnimationWrapper>
 
-        <div className="bg-blue-100 py-10 min-h-screen">
-          {/* Why Merano Section */}
-          {whyMeranoContent && <WhyMeranoSection sectionContent={whyMeranoContent} />}
-
-          {/* Breathtaking Nature Section */}
+        <WhyMeranoAnimationWrapper
+          id="why-merano"
+          className="min-h-screen bg-blue-100 py-10"
+        >
+          {whyMeranoContent && (
+            <WhyMeranoSection sectionContent={whyMeranoContent} />
+          )}
           {natureContent && <NatureSection sectionContent={natureContent} />}
-        </div>
+        </WhyMeranoAnimationWrapper>
 
-        {/* Testimonials Grid */}
-        <TestimonialsGrid testimonials={testimonials} />
+        <TestimonialAnimationWrapper id="testimonial-grid">
+          <TestimonialsGrid testimonials={testimonials} />
+        </TestimonialAnimationWrapper>
 
-        {/* Final CTA Section */}
-        {ctaContent && <FinalCtaSection ctaContent={ctaContent} />}
+        <FinalCtaAnimationWrapper id="final-cta">
+          {ctaContent && <FinalCtaSection ctaContent={ctaContent} />}
+        </FinalCtaAnimationWrapper>
       </main>
 
-      {/* Footer */}
-      <Footer />
+      <FooterAnimationWrapper id="footer">
+        <Footer />
+      </FooterAnimationWrapper>
     </div>
   );
 }

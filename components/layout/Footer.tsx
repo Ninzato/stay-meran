@@ -8,15 +8,13 @@ export async function Footer() {
   return (
     <footer className="bg-blue-900 text-white">
       <Section className="flex flex-col gap-8 pt-[68px] pb-[91px]">
-        {/* Header Message */}
         <div className="flex flex-col gap-8">
           <h2 className="tracking-tightest text-2xl font-medium 2xl:text-[40px]">
             {t('contactUs')}
           </h2>
 
-          {/* Contact Buttons */}
           <div className="flex flex-col gap-5 2xl:flex-row">
-            <button className="flex items-center gap-3 rounded-full px-6 py-3 text-left outline outline-blue-800 transition-colors hover:cursor-pointer hover:bg-white/10">
+            <button className="button-contact flex items-center gap-3 rounded-full px-6 py-3 text-left outline outline-blue-800 transition-colors hover:cursor-pointer hover:bg-white/10">
               <Image
                 src="/icons/icon-email.svg"
                 alt="Email"
@@ -30,7 +28,7 @@ export async function Footer() {
                 info@staymeran.com
               </span>
             </button>
-            <button className="flex items-center gap-3 rounded-full px-6 py-3 text-left outline outline-blue-800 transition-colors hover:cursor-pointer hover:bg-white/10">
+            <button className="button-contact flex items-center gap-3 rounded-full px-6 py-3 text-left outline outline-blue-800 transition-colors hover:cursor-pointer hover:bg-white/10">
               <Image
                 src="/icons/icon-phone.svg"
                 alt="Phone"
@@ -47,14 +45,10 @@ export async function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="h-[1px] bg-blue-800"></div>
 
-        {/* Main Content Area */}
         <div>
-          {/* Desktop Layout */}
           <div className="hidden gap-8 2xl:flex">
-            {/* Left: Logo + Address + Rating Card */}
             <div className="flex w-[375px] flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Image
@@ -71,18 +65,16 @@ export async function Footer() {
                 Bernhard Johannes Str. 1, 39012 Merano
               </p>
 
-              {/* Rating Card */}
               <Image
                 src="/images/rating.png"
                 alt="Booking.com Traveller Review Awards 2025 - Rating 9.3"
                 width={192}
                 height={136}
-                className="rounded-lg"
+                className="rating-card rounded-lg"
               />
             </div>
 
-            {/* About */}
-            <div className="flex w-[195px] flex-col gap-3">
+            <div className="footer-menu flex w-[195px] flex-col gap-3">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
                 {t('about')}
               </h3>
@@ -106,8 +98,7 @@ export async function Footer() {
               </ul>
             </div>
 
-            {/* Our Stays */}
-            <div className="flex w-[298px] flex-col gap-3">
+            <div className="footer-menu flex w-[298px] flex-col gap-3">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
                 {t('ourStays')}
               </h3>
@@ -139,9 +130,8 @@ export async function Footer() {
               </ul>
             </div>
 
-            {/* Right: Social Icons */}
             <div className="flex w-[250px] flex-col items-end justify-between gap-3">
-              <div className="flex gap-6">
+              <div className="social-icons flex gap-6">
                 <a
                   href="#"
                   className="rounded-full bg-blue-800 p-2 transition-colors hover:bg-white/20"
@@ -166,8 +156,7 @@ export async function Footer() {
                 </a>
               </div>
 
-              {/* Content, Design and Code By */}
-              <div className="flex flex-col gap-2">
+              <div className="social-icons flex flex-col gap-2">
                 <Image
                   src="/images/design-by.svg"
                   alt="Content, design and code by"
@@ -198,9 +187,7 @@ export async function Footer() {
             </div>
           </div>
 
-          {/* Mobile Layout */}
           <div className="flex flex-col gap-8 2xl:hidden">
-            {/* About */}
             <div className="flex flex-col gap-4">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
                 {t('about')}
@@ -225,7 +212,6 @@ export async function Footer() {
               </ul>
             </div>
 
-            {/* Our Stays */}
             <div className="flex flex-col gap-4">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
                 {t('ourStays')}
@@ -258,7 +244,6 @@ export async function Footer() {
               </ul>
             </div>
 
-            {/* Our Social Media */}
             <div className="flex flex-col gap-4">
               <h3 className="tracking-tightest text-lg leading-[2em] font-medium">
                 {t('ourSocialMedia')}
@@ -289,7 +274,6 @@ export async function Footer() {
               </div>
             </div>
 
-            {/* Logo + Address */}
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <Image
@@ -306,7 +290,6 @@ export async function Footer() {
                 Bernhard Johannes Str. 1, 39012 Merano
               </p>
 
-              {/* Rating Card */}
               <Image
                 src="/images/rating.png"
                 alt="Booking.com Traveller Review Awards 2025 - Rating 9.3"
@@ -316,10 +299,8 @@ export async function Footer() {
               />
             </div>
 
-            {/* Divider */}
             <div className="h-[1px] bg-blue-800"></div>
 
-            {/* Content, Design and Code By */}
             <div className="flex flex-col gap-2">
               <Image
                 src="/images/design-by.svg"
@@ -351,15 +332,12 @@ export async function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="h-[1px] bg-blue-800"></div>
 
-        {/* Bottom Section */}
         <div>
           <div className="flex flex-col gap-5 2xl:flex-row 2xl:items-center 2xl:justify-between">
-            {/* Right: Dropdowns */}
             <div className="order-1 flex gap-4 2xl:order-2 2xl:flex-row 2xl:gap-6">
-              <button className="flex items-center gap-3">
+              <button className="bottom-section flex items-center gap-3">
                 <span className="tracking-tightest leading-[2em] text-blue-400">
                   English (EN)
                 </span>
@@ -377,7 +355,7 @@ export async function Footer() {
                   />
                 </svg>
               </button>
-              <button className="flex items-center gap-3">
+              <button className="bottom-section flex items-center gap-3">
                 <span className="tracking-tightest leading-[2em] text-blue-400">
                   {t('legal')}
                 </span>
@@ -397,8 +375,7 @@ export async function Footer() {
               </button>
             </div>
 
-            {/* Left: Copyright */}
-            <p className="tracking-tightest order-2 leading-[2em] text-blue-400 2xl:order-1">
+            <p className="bottom-section tracking-tightest order-2 leading-[2em] text-blue-400 2xl:order-1">
               {t('copyright')}
             </p>
           </div>

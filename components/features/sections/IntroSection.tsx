@@ -9,7 +9,6 @@ export function IntroSection({ sectionContent }: IntroSectionProps) {
 
   return (
     <Section
-      id="our-stays"
       className="mt-16"
     >
       <div className="w-[361px] 2xl:w-[1065px]">
