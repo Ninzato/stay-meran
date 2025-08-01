@@ -33,11 +33,10 @@ export function FinalCtaAnimationWrapper({
       // Set initial opacity to 0
       gsap.set(wrapperRef.current, { opacity: 0 });
 
-
       // Function to trigger animations when section becomes visible
       const startAnimations = () => {
         if (!wrapperRef.current) return;
-        
+
         // Show the wrapper first
         gsap.set(wrapperRef.current, { opacity: 1 });
 
@@ -141,7 +140,7 @@ export function FinalCtaAnimationWrapper({
             0.8 // Start at 0.35s
           );
         }
-        
+
         // Mark animations as complete after all animations finish
         const totalAnimationTime = 1.6; // Image (1.1s) + overlapping text/button
         setTimeout(() => {
@@ -159,7 +158,7 @@ export function FinalCtaAnimationWrapper({
             }
           });
         },
-        { threshold: 0.9 } // Trigger when 90% visible
+        { threshold: 0.8 } // Trigger when 90% visible
       );
 
       observer.observe(wrapperRef.current);
@@ -171,75 +170,74 @@ export function FinalCtaAnimationWrapper({
   // Separate useEffect for scroll event handling with improved responsiveness
   useEffect(() => {
     let eventListenerActive = true;
-    
+
     const handleScrollTransition = (event: WheelEvent) => {
       // Skip if event listener is disabled during animation
       if (!eventListenerActive || isScrollLocked) {
         return;
       }
-      
+
       // Check current scroll position to determine section
-      const scrollY = window.scrollY;
       const finalCtaSection = document.querySelector('#final-cta');
       const footerSection = document.querySelector('#footer');
-      
+
       if (!finalCtaSection || !footerSection) return;
-      
-      const finalCtaElement = finalCtaSection as HTMLElement;
-      const finalCtaSectionTop = finalCtaElement.offsetTop;
-      
-      // Much more generous detection area
-      const isNearFinalCtaSection = scrollY >= (finalCtaSectionTop - 300); // Start detection 300px before section
-      
+
       // Reset scroll accumulator if enough time has passed
       const currentTime = Date.now();
       if (currentTime - lastScrollTime.current > 500) {
         scrollAccumulator.current = 0;
       }
       lastScrollTime.current = currentTime;
-      
+
       // Accumulate scroll delta for more responsive detection
-      if (event.deltaY > 0 && isNearFinalCtaSection) {
+      if (event.deltaY > 0) {
         scrollAccumulator.current += Math.abs(event.deltaY);
       }
-      
+
       // Lower threshold for triggering - just one meaningful scroll
-      const canTransitionToFooter = animationsComplete && !hasTransitionedToFooter;
+      const canTransitionToFooter =
+        animationsComplete && !hasTransitionedToFooter;
       const scrollThreshold = 50; // Much lower threshold
-      
+
       // Scroll Down from Final CTA: Transition to footer section with bottom-to-bottom snap
-      if (scrollAccumulator.current > scrollThreshold && isNearFinalCtaSection && canTransitionToFooter) {
+      if (
+        scrollAccumulator.current > scrollThreshold &&
+        canTransitionToFooter
+      ) {
         event.preventDefault();
         eventListenerActive = false; // Disable event listener during animation
         setIsScrollLocked(true);
         setHasTransitionedToFooter(true);
         scrollAccumulator.current = 0; // Reset accumulator
-        
+
+        // Pre-cache footer reference and animation function to eliminate delay
+        const footerWrapper = document.querySelector('#footer');
+        const startFooterAnimation = footerWrapper ? 
+          (footerWrapper as AnimationEnabledElement).__startFooterAnimation : null;
+
         // Create smooth transition to footer with bottom-to-bottom alignment
         const transitionTl = gsap.timeline({
           onComplete: () => {
-            // Trigger footer animation immediately after scroll completes
-            const footerWrapper = document.querySelector('#footer');
-            if (footerWrapper) {
-              const startFooterAnimation = (footerWrapper as AnimationEnabledElement).__startFooterAnimation;
-              if (startFooterAnimation) {
-                startFooterAnimation();
-              }
+            // Trigger footer animation immediately when scroll completes (no DOM queries = no delay)
+            if (startFooterAnimation) {
+              startFooterAnimation();
             }
             
             eventListenerActive = true; // Re-enable event listener
             setIsScrollLocked(false);
           }
         });
-        
+
         // Calculate bottom-to-bottom snap position
         // Footer bottom should align with viewport bottom
         const footerElement = footerSection as HTMLElement;
         const footerTop = footerElement.offsetTop;
         const footerHeight = footerElement.offsetHeight;
         const viewportHeight = window.innerHeight;
-        const bottomToBottomPosition = footerTop + footerHeight - viewportHeight;
-        
+        const bottomToBottomPosition =
+          footerTop + footerHeight - viewportHeight;
+
         // Smooth scroll to calculated position (bottom-to-bottom)
         transitionTl.to(window, {
           scrollTo: { y: bottomToBottomPosition, autoKill: false },
@@ -248,10 +246,12 @@ export function FinalCtaAnimationWrapper({
         });
       }
     };
-    
+
     // Add scroll event listener to document
-    document.addEventListener('wheel', handleScrollTransition, { passive: false });
-    
+    document.addEventListener('wheel', handleScrollTransition, {
+      passive: false
+    });
+
     // Cleanup function
     return () => {
       document.removeEventListener('wheel', handleScrollTransition);
