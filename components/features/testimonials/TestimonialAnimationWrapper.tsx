@@ -47,18 +47,27 @@ export function TestimonialAnimationWrapper({ children, className, id }: Testimo
           // Split text into words
           const titleWords = splitTextIntoWords(title);
           const subtitleWords = splitTextIntoWords(subtitle);
-          
+
           // Calculate stagger timing to synchronize completion at 1 second (same as WhyMerano)
           const totalDuration = 1000; // 1 second in milliseconds
-          const animationDuration = 0.6; // Duration of each word animation
-          
+          const animationDuration = 0.5; // Duration of each word animation
+
           // Calculate stagger intervals to finish simultaneously
-          const titleStagger = titleWords.length > 1 ? (totalDuration - animationDuration * 1000) / (titleWords.length - 1) : 0;
-          const subtitleStagger = subtitleWords.length > 1 ? (totalDuration - animationDuration * 1000) / (subtitleWords.length - 1) : 0;
-          
+          const titleStagger =
+            titleWords.length > 1
+              ? (totalDuration - animationDuration * 1000) /
+                (titleWords.length - 1)
+              : 0;
+          const subtitleStagger =
+            subtitleWords.length > 1
+              ? (totalDuration - animationDuration * 1000) /
+                (subtitleWords.length - 1)
+              : 0;
+
           // Animate title words with fly-up effect (same as WhyMerano)
           titleWords.forEach((word, index) => {
-            mainTl.fromTo(word,
+            mainTl.fromTo(
+              word,
               {
                 opacity: 0,
                 y: 30,
@@ -74,10 +83,11 @@ export function TestimonialAnimationWrapper({ children, className, id }: Testimo
               index * (titleStagger / 1000) // Convert to seconds for GSAP
             );
           });
-          
+
           // Animate subtitle words with fly-up effect (starting simultaneously)
           subtitleWords.forEach((word, index) => {
-            mainTl.fromTo(word,
+            mainTl.fromTo(
+              word,
               {
                 opacity: 0,
                 y: 30,
@@ -93,17 +103,20 @@ export function TestimonialAnimationWrapper({ children, className, id }: Testimo
               index * (subtitleStagger / 1000) // Convert to seconds for GSAP
             );
           });
-          
+
           // 2. Testimonial Cards Animation (starts at 0.8 second mark)
-          const cardsStartTime = 0.8; // Start at 0.8s during title/subtitle animation
-          
+          const cardsStartTime = 0.6; // Start at 0.8s during title/subtitle animation
+
           // Find all testimonial cards
-          const testimonialCards = wrapperRef.current.querySelectorAll('[data-testimonial-card]');
-          
+          const testimonialCards = wrapperRef.current.querySelectorAll(
+            '[data-testimonial-card]'
+          );
+
           if (testimonialCards.length > 0) {
             // Animate all cards simultaneously
-            testimonialCards.forEach((card) => {
-              mainTl.fromTo(card,
+            testimonialCards.forEach(card => {
+              mainTl.fromTo(
+                card,
                 {
                   scale: 0.6,
                   opacity: 0
@@ -111,16 +124,16 @@ export function TestimonialAnimationWrapper({ children, className, id }: Testimo
                 {
                   scale: 1,
                   opacity: 1,
-                  duration: 0.8,
+                  duration: 0.7,
                   ease: 'power2.out'
                 },
                 cardsStartTime // All cards start at same time
               );
             });
           }
-          
+
           // Mark animations as complete after all animations finish
-          const totalAnimationTime = 1.6; // Title/subtitle (1s) + cards (0.8s with 0.8s start) = 1.6s
+          const totalAnimationTime = 1.3; // Title/subtitle (1s) + cards (0.8s with 0.8s start) = 1.6s
           setTimeout(() => {
             setAnimationsComplete(true);
           }, totalAnimationTime * 1000);

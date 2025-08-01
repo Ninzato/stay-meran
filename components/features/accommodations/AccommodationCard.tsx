@@ -29,8 +29,8 @@ export async function AccommodationCard({ accommodation }: AccommodationCardProp
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-1 justify-between gap-5">
-        <div className="flex flex-col gap-3">
+      <div className="flex flex-1 flex-col justify-between gap-5">
+        <div className="title-desc flex flex-col gap-3">
           {/* Title */}
           <h3 className="tracking-tightest text-xl font-semibold text-blue-900">
             {accommodation.title}

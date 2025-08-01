@@ -30,10 +30,10 @@ export function AccommodationCardAnimated({
       const imageWrapper = cardRef.current.querySelector(
         'div.relative.w-full.overflow-hidden.rounded-xl'
       );
-      const title = cardRef.current.querySelector('h3');
-      const description = cardRef.current.querySelector(
-        'p[class*="leading-relaxed"]'
-      );
+      const title = cardRef.current.querySelector('.title-desc');
+      // const description = cardRef.current.querySelector(
+      //   'p[class*="leading-relaxed"]'
+      // );
       const button = cardRef.current.querySelector('button, [role="button"]');
 
       // Set initial states (no need to set opacity for child elements since parent is hidden)
@@ -43,8 +43,8 @@ export function AccommodationCardAnimated({
           transformOrigin: 'center center'
         });
       if (title) gsap.set(title, { clipPath: 'inset(0% 0% 100% 0%)' });
-      if (description)
-        gsap.set(description, { clipPath: 'inset(0% 0% 100% 0%)' });
+      // if (description)
+      //   gsap.set(description, { clipPath: 'inset(0% 0% 100% 0%)' });
       if (button) gsap.set(button, { scale: 0.7, opacity: 0 });
 
       // Animation function to be called externally - handles complete card animation sequence
@@ -61,14 +61,14 @@ export function AccommodationCardAnimated({
         cardTl.fromTo(
           cardRef.current,
           { opacity: 0 },
-          { opacity: 1, duration: 0.8, ease: 'power1.inOut' }
+          { opacity: 1, duration: 0.5, ease: 'power1.inOut' }
         );
 
         if (imageWrapper) {
           cardTl.fromTo(
             imageWrapper,
             { scale: 0.6 },
-            { scale: 1, duration: 0.8, ease: 'power1.inOut' },
+            { scale: 1, duration: 0.5, ease: 'power1.inOut' },
             0 // Start at same time as card fade-in
           );
         }
@@ -77,36 +77,38 @@ export function AccommodationCardAnimated({
         if (title) {
           cardTl.fromTo(
             title,
-            { clipPath: 'inset(0% 0% 100% 0%)' },
+            { clipPath: 'inset(0% 100% 0% 0%)', scale: 1.1 },
             {
               clipPath: 'inset(0% 0% 0% 0%)',
-              duration: 0.6,
-              ease: 'power1.inOut'
+              scale: 1,
+              duration: 0.5,
+              ease: 'power2.inOut'
             },
             '-=0.2' // Start 0.2s before image completes
           );
         }
 
         // 3. Description animation (slightly after title)
-        if (description) {
-          cardTl.fromTo(
-            description,
-            { clipPath: 'inset(0% 0% 100% 0%)' },
-            {
-              clipPath: 'inset(0% 0% 0% 0%)',
-              duration: 0.6,
-              ease: 'power1.inOut'
-            },
-            '-=0.4' // Start 0.4s before title completes (0.2s after title starts)
-          );
-        }
+        // if (description) {
+        //   cardTl.fromTo(
+        //     description,
+        //     { clipPath: 'inset(0% 100% 0% 0%)', scale: 0.8 },
+        //     {
+        //       clipPath: 'inset(0% 0% 0% 0%)',
+        //       scale: 1,
+        //       duration: 0.5,
+        //       ease: 'power1.inOut'
+        //     },
+        //     '-=0.4' // Start 0.4s before title completes (0.2s after title starts)
+        //   );
+        // }
 
         // 4. Button animation (after description)
         if (button) {
           cardTl.fromTo(
             button,
             { scale: 0.7, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.5, ease: 'power1.inOut' },
+            { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.inOut' },
             '-=0.3' // Start 0.3s before description completes
           );
         }
