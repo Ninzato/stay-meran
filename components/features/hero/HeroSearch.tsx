@@ -5,7 +5,7 @@ interface HeroSearchProps {
   searchPlaceholder?: string;
 }
 
-export async function HeroSearch({ searchPlaceholder }: HeroSearchProps) {
+export async function HeroSearch({ searchPlaceholder: _searchPlaceholder }: HeroSearchProps) {
   const t = await getTranslations('search');
 
   return (

@@ -3,6 +3,8 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { splitTextIntoWords } from '@/lib/animations';
+import type { AnimationEnabledElement } from '@/lib/animations/types';
 
 interface FooterAnimationWrapperProps {
   children: React.ReactNode;
@@ -22,27 +24,6 @@ export function FooterAnimationWrapper({
       // Set initial opacity to 0 - footer should be hidden until snap animation
       gsap.set(wrapperRef.current, { opacity: 0 });
       
-      // Utility function to split text into word spans (reused from intro section)
-      const splitTextIntoWords = (element: Element): HTMLSpanElement[] => {
-        const text = element.textContent || '';
-        const words = text.trim().split(/\s+/);
-        const wordSpans: HTMLSpanElement[] = [];
-
-        // Clear existing content
-        element.innerHTML = '';
-
-        // Create span for each word
-        words.forEach((word, index) => {
-          const span = document.createElement('span');
-          span.textContent = word;
-          span.style.display = 'inline-block';
-          span.style.marginRight = index < words.length - 1 ? '0.25em' : '0';
-          element.appendChild(span);
-          wordSpans.push(span);
-        });
-
-        return wordSpans;
-      };
 
       // Function to trigger animations when snap scroll completes
       const startAnimations = () => {
@@ -261,7 +242,7 @@ export function FooterAnimationWrapper({
 
       // Expose animation function to be called from FinalCtaAnimationWrapper
       if (wrapperRef.current) {
-        (wrapperRef.current as any).__startFooterAnimation = startAnimations;
+        (wrapperRef.current as AnimationEnabledElement).__startFooterAnimation = startAnimations;
       }
     }
   }, []);

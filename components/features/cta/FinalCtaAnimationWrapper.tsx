@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { splitTextIntoWords } from '@/lib/animations';
+import type { AnimationEnabledElement } from '@/lib/animations/types';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollToPlugin);
@@ -31,27 +33,6 @@ export function FinalCtaAnimationWrapper({
       // Set initial opacity to 0
       gsap.set(wrapperRef.current, { opacity: 0 });
 
-      // Utility function to split text into word spans (reused from intro section)
-      const splitTextIntoWords = (element: Element): HTMLSpanElement[] => {
-        const text = element.textContent || '';
-        const words = text.trim().split(/\s+/);
-        const wordSpans: HTMLSpanElement[] = [];
-
-        // Clear existing content
-        element.innerHTML = '';
-
-        // Create span for each word
-        words.forEach((word, index) => {
-          const span = document.createElement('span');
-          span.textContent = word;
-          span.style.display = 'inline-block';
-          span.style.marginRight = index < words.length - 1 ? '0.25em' : '0';
-          element.appendChild(span);
-          wordSpans.push(span);
-        });
-
-        return wordSpans;
-      };
 
       // Function to trigger animations when section becomes visible
       const startAnimations = () => {
@@ -206,8 +187,6 @@ export function FinalCtaAnimationWrapper({
       
       const finalCtaElement = finalCtaSection as HTMLElement;
       const finalCtaSectionTop = finalCtaElement.offsetTop;
-      const finalCtaSectionHeight = finalCtaElement.offsetHeight;
-      const finalCtaSectionBottom = finalCtaSectionTop + finalCtaSectionHeight;
       
       // Much more generous detection area
       const isNearFinalCtaSection = scrollY >= (finalCtaSectionTop - 300); // Start detection 300px before section
@@ -242,7 +221,7 @@ export function FinalCtaAnimationWrapper({
             // Trigger footer animation immediately after scroll completes
             const footerWrapper = document.querySelector('#footer');
             if (footerWrapper) {
-              const startFooterAnimation = (footerWrapper as any).__startFooterAnimation;
+              const startFooterAnimation = (footerWrapper as AnimationEnabledElement).__startFooterAnimation;
               if (startFooterAnimation) {
                 startFooterAnimation();
               }

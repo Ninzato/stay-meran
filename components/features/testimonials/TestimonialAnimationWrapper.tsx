@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { splitTextIntoWords } from '@/lib/animations';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollToPlugin);
@@ -27,27 +28,6 @@ export function TestimonialAnimationWrapper({ children, className, id }: Testimo
       // Set initial opacity to 0
       gsap.set(wrapperRef.current, { opacity: 0 });
       
-      // Utility function to split text into word spans (reused from WhyMeranoAnimationWrapper)
-      const splitTextIntoWords = (element: Element): HTMLSpanElement[] => {
-        const text = element.textContent || '';
-        const words = text.trim().split(/\s+/);
-        const wordSpans: HTMLSpanElement[] = [];
-        
-        // Clear existing content
-        element.innerHTML = '';
-        
-        // Create span for each word
-        words.forEach((word, index) => {
-          const span = document.createElement('span');
-          span.textContent = word;
-          span.style.display = 'inline-block';
-          span.style.marginRight = index < words.length - 1 ? '0.25em' : '0';
-          element.appendChild(span);
-          wordSpans.push(span);
-        });
-        
-        return wordSpans;
-      };
 
       // Function to trigger animations when section becomes visible
       const startAnimations = () => {
